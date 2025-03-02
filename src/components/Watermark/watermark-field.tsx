@@ -1,6 +1,6 @@
 'use client'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
-import { PaginatedDocs } from 'payload'
+import { PaginatedDocs, UploadFieldServerProps } from 'payload'
 // Type
 import { PositionProps, PreviewImgProps, SettingImgWatermarkProps } from './type'
 import { Media, Watermark } from '../../payload-types'
@@ -37,7 +37,7 @@ const defaultValuePreviewImg = {
   isAutoResize: true,
 }
 
-const WatermarkField = ({ field, path }) => {
+const WatermarkField = ({ field, path }: UploadFieldServerProps) => {
   const { label } = field
   const timerId = useRef<NodeJS.Timeout | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -354,7 +354,7 @@ const WatermarkField = ({ field, path }) => {
 
   return (
     <div className="field-type flex-1">
-      <Label className="field-label text-[13px] leading-[20px]">{label}</Label>
+      <Label className="field-label text-[13px] leading-[20px]">{label as string}</Label>
       {isLoading ? (
         <p>Loading...</p>
       ) : previewImg.srcWatermark ? (

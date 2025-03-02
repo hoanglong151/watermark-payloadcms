@@ -1,0 +1,18 @@
+@tailwind components;
+@tailwind utilities;
+
+.collection-edit--media .thumbnail {
+  height: 115px;
+}
+
+.collection-edit--media .thumbnail img {
+  object-fit: contain;
+}
+
+.bulk-upload--file-manager .bulk-upload--file-manager__editView .thumbnail {
+  height: 115px;
+}
+
+.bulk-upload--file-manager .bulk-upload--file-manager__editView .thumbnail img {
+  object-fit: contain;
+}

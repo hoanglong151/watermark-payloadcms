@@ -5,8 +5,7 @@ import {
   LinkJSXConverter,
   RichText as RichTextWithoutBlocks,
 } from '@payloadcms/richtext-lexical/react'
-
-import { cn } from '@/utilities/ui'
+import { cn } from '../../utilities/ui'
 
 type NodeTypes = DefaultNodeTypes
 

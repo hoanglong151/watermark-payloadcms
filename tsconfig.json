@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "./dist",
     "baseUrl": ".",
     "esModuleInterop": true,
     "target": "ES2022",
@@ -12,7 +13,7 @@
     "skipLibCheck": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
+    "noEmit": false,
     "incremental": true,
     "jsx": "preserve",
     "module": "esnext",
@@ -25,17 +26,6 @@
         "name": "next"
       }
     ],
-    "paths": {
-      "@payload-config": [
-        "./src/payload.config.ts"
-      ],
-      "react": [
-        "./node_modules/@types/react"
-      ],
-      "@/*": [
-        "./src/*"
-      ]
-    },
     "strict": false
   },
   "include": [
@@ -44,7 +34,8 @@
     ".next/types/**/*.ts",
     "redirects.js",
     "next.config.js",
-    "next-sitemap.config.cjs"
+    "next-sitemap.config.cjs",
+     "index.js"
   ],
   "exclude": [
     "node_modules"

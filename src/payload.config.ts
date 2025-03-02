@@ -9,8 +9,9 @@ import { fileURLToPath } from 'url'
 import { Media } from './collections/Media'
 import { Users } from './collections/Users'
 import { plugins } from './plugins'
-import { defaultLexical } from '@/fields/defaultLexical'
+import { defaultLexical } from './fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { Watermark } from './collections/Watermark'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -49,7 +50,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Media, Users],
+  collections: [Media, Watermark, Users],
   cors: [getServerSideURL()].filter(Boolean),
   plugins: [
     ...plugins,

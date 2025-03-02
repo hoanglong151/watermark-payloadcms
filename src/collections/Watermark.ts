@@ -11,32 +11,25 @@ import { fileURLToPath } from 'url'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-export const Media: CollectionConfig = {
-  slug: 'media',
+export const Watermark: CollectionConfig = {
+  slug: 'watermark',
   access: {
     create: () => true,
     delete: () => true,
     read: () => true,
     update: () => true,
   },
+  labels: {
+    plural: 'Watermark',
+    singular: 'Watermark',
+  },
+  admin: {
+    group: 'Quản lý',
+  },
   fields: [
-    {
-      name: 'watermark',
-      label: 'Watermark',
-      type: 'upload',
-      relationTo: 'media',
-      admin: {
-        components: {
-          Field: {
-            path: '../components/Watermark/watermark-field',
-          },
-        },
-      },
-    },
     {
       name: 'alt',
       type: 'text',
-      //required: true,
     },
     {
       name: 'caption',
@@ -50,9 +43,11 @@ export const Media: CollectionConfig = {
   ],
   upload: {
     // Upload to the public/media directory in Next.js making them publicly accessible even outside of Payload
-    staticDir: path.resolve(dirname, '../../public/media'),
+    staticDir: path.resolve(dirname, '../../../public/media'),
+    displayPreview: true,
     adminThumbnail: 'thumbnail',
     focalPoint: true,
+    mimeTypes: ['image/png', 'image/jpeg', 'image/webp', 'image/svg'],
     imageSizes: [
       {
         name: 'thumbnail',
